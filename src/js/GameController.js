@@ -75,11 +75,7 @@ export default class GameController {
   }
 
   saveGame() {
-    this.gameState.attackCells = [];
-    this.gameState.transitionCells = [];
-    this.gameState.activeCharUser = null;
     this.stateService.save(this.gameState);
-    this.gamePlay.showModalMessage("Your game has saved!", "9997");
   }
 
   loadGame() {
@@ -289,18 +285,6 @@ export default class GameController {
       this.gamePlay.redrawPositions(this.gameState.getAllPlayer());
     }
   }
-
-  // Uncomment the following if you want to handle game ending
-  // async checkGameOver() {
-  //   if (this.gameState.levelGame >= 5) {
-  //     this.gameState.point = this.gameState.calculateSumPoints();
-  //     this.gameState.block = true;
-  //     this.gamePlay.redrawPositions(this.gameState.allPlayer);
-  // eslint-disable-next-line max-len
-  //     this.gamePlay.showModalMessage(`You win! Your points are ${this.gameState.point}`, '127881');
-  //     return;
-  //   }
-  // }
 
   async handleComputerTurn() {
     this.gameState.activeCharUser = this.gameState.activeChar;

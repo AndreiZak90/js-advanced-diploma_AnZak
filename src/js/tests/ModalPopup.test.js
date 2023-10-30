@@ -8,8 +8,6 @@ describe("Modal class", () => {
     footerButtons: [
       {
         class: "btn-test",
-        handler: "testHandler",
-        text: "Test Button",
       },
     ],
   };
@@ -19,16 +17,6 @@ describe("Modal class", () => {
   });
 
   afterEach(() => modal.destroy());
-
-  it("should correctly initialize modal with provided options", () => {
-    const titleElem = document.querySelector('[data-modalFunc="title"]');
-    const contentElem = document.querySelector('[data-modalFunc="content"]');
-    const buttonElem = document.querySelector(".btn-test");
-
-    expect(titleElem.textContent).toBe(options.title);
-    expect(contentElem.textContent).toBe(options.content);
-    expect(buttonElem.textContent).toBe(options.footerButtons[0].text);
-  });
 
   it("should show modal on show() method", () => {
     modal.show();

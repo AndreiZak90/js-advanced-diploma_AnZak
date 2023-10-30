@@ -118,22 +118,12 @@ export default class GamePlay {
     }
   }
 
-  showModal(message, unicode) {
+  showModal(message) {
     const modal = new ModalPopup({
       title: message,
-      content: `&#${unicode}`,
-      footerButtons: [
-        {
-          class: "btn btn__cancel",
-          text: "Close",
-          handler: "modalHandlerCancel",
-        },
-      ],
     });
 
     this.currentModal = modal;
-
-    modal.show();
   }
 
   /**
@@ -217,10 +207,10 @@ export default class GamePlay {
     this.loadGameListeners.forEach((o) => o.call(null));
   }
 
-  showModalMessage(message, unicode) {
+  showModalMessage(message) {
     if (!this.isModal) {
       this.isModal = true;
-      this.showModal(message, unicode);
+      this.showModal(message);
     }
   }
 
